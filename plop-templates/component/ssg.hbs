@@ -1,0 +1,13 @@
+import styles from "./{{pascalCase name}}.module.css";
+
+export const dynamic = "force-static";
+
+export default async function {{pascalCase name}}() {
+  const data = await fetch("https://api.example.com/data").then(res => res.json());
+
+  return (
+    <div className={styles.wrapper}>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
+}
