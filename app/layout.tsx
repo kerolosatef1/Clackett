@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Suspense } from "react";
@@ -16,26 +16,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "كلاكيت",
-  description: "افضل قناة لعرض الافلام الاجنبية والمصرية ",
-  keywords: ["films", "movies", "cinema", "افلام مصرية", "كلاكيت فيلم", "rotana"]
+  description: "افضل قناة لعرض الافلام",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ar" dir="rtl">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Suspense fallback={<div className="bg-gray-900 h-16" />}>
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-black`}>
+        <Suspense fallback={<div className="h-16 bg-gray-900 animate-pulse" />}>
           <Navbar />
         </Suspense>
-        <main>
-          {children}
-        </main>
+
+        <main>{children}</main>
       </body>
     </html>
   );

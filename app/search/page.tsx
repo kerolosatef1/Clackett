@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import MoviesList from "@/app/components/MovieList/MovieList";
-import { searchMovies } from "@/app/Data/movies";
+import { searchMovies } from "@/app/Data/MovieClient";
 import type { Movie } from "@/app/types/movie";
 
 function SearchPageContent() {
@@ -71,7 +71,8 @@ function SearchPageContent() {
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             placeholder="ابحث عن فيلم..."
-                            className="flex-1 px-4 py-3 rounded-lg outline-none text-lg"
+
+                            className="flex-1 text-white  px-4 py-3 rounded-lg outline-none text-lg"
                         />
                         <button
                             type="submit"

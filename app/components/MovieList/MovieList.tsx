@@ -1,3 +1,4 @@
+
 import CardMovies from "../CardMovies/CardMovies";
 import type { Movie } from "@/app/types/movie";
 

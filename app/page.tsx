@@ -1,6 +1,7 @@
+import { Suspense } from "react";
 import MoviesList from "@/app/components/MovieList/MovieList";
-import ServerPagination from "@/app/components/ServerPagination/Pagination";
-import { fetchPopularMovies } from "@/app/Data/movies";
+import Pagination from "@/app/components/Pagination/Pagination";
+import { fetchPopularMovies } from "@/app/Data/MoviesServer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,24 +13,22 @@ interface HomePageProps {
   searchParams: Promise<{ page?: string }>;
 }
 
-export default async function HomePage({ searchParams }: HomePageProps) {
+async function PopularMoviesContent({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const params = await searchParams;
   const currentPage = Number(params.page) || 1;
-
   const data = await fetchPopularMovies(currentPage);
-  const movies = data.results;
-  const totalPages = Math.min(data.total_pages, 500); // TMDB API limit
+  const totalPages = Math.min(data.total_pages, 500);
 
   return (
-    <div className="min-h-screen bg-black p-5">
+    <>
       <h1 className="text-white text-3xl font-bold mb-5">
         الأفلام الشعبية {currentPage > 1 && `- صفحة ${currentPage}`}
       </h1>
 
-      {movies.length > 0 ? (
+      {data.results.length > 0 ? (
         <>
-          <MoviesList movies={movies} />
-          <ServerPagination
+          <MoviesList movies={data.results} />
+          <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
           />
@@ -37,6 +36,16 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       ) : (
         <h3 className="text-white text-center">لا يوجد أفلام</h3>
       )}
+    </>
+  );
+}
+
+export default function HomePage({ searchParams }: HomePageProps) {
+  return (
+    <div className="min-h-screen bg-black p-5">
+      <Suspense fallback={<div className="text-white text-center py-20 text-xl font-bold">جاري تحميل الأفلام...</div>}>
+        <PopularMoviesContent searchParams={searchParams} />
+      </Suspense>
     </div>
   );
 }

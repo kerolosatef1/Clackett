@@ -1,17 +1,15 @@
 import Link from 'next/link';
-
 interface ServerPaginationProps {
     currentPage: number;
     totalPages: number;
     basePath?: string;
 }
-
 export default function Pagination({
     currentPage,
     totalPages,
     basePath = '/'
 }: ServerPaginationProps) {
-    const maxPagesToShow = 5;
+    const maxPagesToShow = 1;
     const halfRange = Math.floor(maxPagesToShow / 2);
 
     let startPage = Math.max(1, currentPage - halfRange);
@@ -89,7 +87,7 @@ export default function Pagination({
                 )
             ))}
 
-            {/* Last Page */}
+
             {endPage < totalPages && (
                 <>
                     {endPage < totalPages - 1 && (
@@ -104,7 +102,7 @@ export default function Pagination({
                 </>
             )}
 
-            {/* Next Button */}
+
             {currentPage < totalPages ? (
                 <Link
                     href={buildUrl(currentPage + 1)}
