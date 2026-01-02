@@ -1,6 +1,6 @@
 // app/not-found.tsx
+import Image from "next/image";
 import Link from "next/link";
-
 export default function NotFoundPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white px-5">
@@ -17,10 +17,12 @@ export default function NotFoundPage() {
       </Link>
       <div className="mt-10">
        
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png"
+        <Image
+          src="/not-found.png"
           alt="Not Found Illustration"
-          className="w-64 h-64 opacity-70"
+          className="opacity-70"
+          width={256}
+          height={256}
         />
       </div>
     </div>

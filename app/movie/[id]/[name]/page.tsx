@@ -13,14 +13,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const movie = await fetchMovieDetails(id);
 
     return {
-        title: `${movie.title || movie.original_title} - كلاكيت`,
+        title: `${movie.title } - كلاكيت`,
         description: movie.overview || "تفاصيل الفيلم",
         openGraph: {
             title: movie.title || movie.original_title,
             description: movie.overview || "تفاصيل الفيلم",
-            images: movie.poster_path
-                ? [`https://image.tmdb.org/t/p/w500${movie.poster_path}`]
-                : [],
+            
         },
     };
 }
