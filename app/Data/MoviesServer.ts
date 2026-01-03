@@ -6,6 +6,7 @@ import type { MoviesResponse, MovieDetails } from '@/app/types/movie';
 const API_KEY = "4245547a1a9a3e8b5cd0e3921f725cfb";
 const BASE_URL = 'https://api.themoviedb.org/3';
 
+
 export async function fetchPopularMovies(page = 1): Promise<MoviesResponse> {
     'use cache';
     cacheTag('popular-movies');
@@ -14,7 +15,7 @@ export async function fetchPopularMovies(page = 1): Promise<MoviesResponse> {
     const res = await fetch(
         `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=ar&page=${page}`,
          {
-  cache: "force-cache",
+    cache: "force-cache",
 }
     );
 

@@ -1,17 +1,15 @@
 import Image from "next/image";
 import { fetchMovieDetails } from "@/app/Data/MoviesServer";
-
 interface MovieDetailsProps {
     id: string;
 }
-
 export default async function MovieDetails({ id }: MovieDetailsProps) {
     const movie = await fetchMovieDetails(id);
 
     return (
         <div className="min-h-screen bg-black text-white p-5">
             <div className="max-w-6xl mx-auto">
-                <h1 className="text-4xl font-bold mb-6">
+                <h1 className="text-4xl  font-bold mb-6">
                     {movie.title || movie.original_title}
                 </h1>
 
@@ -27,17 +25,15 @@ export default async function MovieDetails({ id }: MovieDetailsProps) {
                                 priority
                             />
                         ) : (
-                            <div className="w-[400px] h-[600px] bg-gray-800 rounded-lg flex items-center justify-center">
+                            <div className="bg-gray-800 rounded-lg flex items-center justify-center">
                                 <span className="text-gray-400">لا توجد صورة</span>
                             </div>
                         )}
                     </div>
-
                     <div className="space-y-4">
                         {movie.tagline && (
                             <p className="text-xl italic text-gray-300">"{movie.tagline}"</p>
                         )}
-
                         <div className="space-y-3">
                             <InfoRow label="اسم الفيلم الأصلي" value={movie.original_title} />
                             <InfoRow label="اللغة الأصلية" value={movie.original_language.toUpperCase()} />

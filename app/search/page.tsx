@@ -5,7 +5,6 @@ import { useSearchParams, useRouter } from "next/navigation";
 import MoviesList from "@/app/components/MovieList/MovieList";
 import { searchMovies } from "@/app/Data/MovieClient";
 import type { Movie } from "@/app/types/movie";
-
 function SearchPageContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -62,22 +61,22 @@ function SearchPageContent() {
     return (
         <div className="min-h-screen bg-black p-5">
             <div className="max-w-7xl mx-auto">
-                <h1 className="text-white text-3xl font-bold mb-5">البحث عن الأفلام</h1>
+                <h2 className="text-white text-center text-3xl font-bold mb-5">البحث عن الأفلام</h2>
 
                 <form onSubmit={handleSearch} className="mb-8">
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-3">
                         <input
                             type="text"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             placeholder="ابحث عن فيلم..."
 
-                            className="flex-1 text-white  px-4 py-3 rounded-lg outline-none text-lg"
+                            className="w-full text-white  px-4 py-3 rounded-lg outline-none text-lg  bg-gray-900 focus:ring-2 focus:ring-red-500"
                         />
                         <button
                             type="submit"
-                            className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-bold"
-                        >
+                             className=" w-full sm:w-auto px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-bold text-base sm:text-lg active:scale-95
+  "                        >
                             بحث
                         </button>
                     </div>
