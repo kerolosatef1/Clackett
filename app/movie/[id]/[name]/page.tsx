@@ -3,6 +3,7 @@ import MovieDetails from "@/app/movie/[id]/[name]/MovieDetails";
 import MovieDetailsSkeleton from "@/app/movie/[id]/[name]/MovieDetailsSkeleton";
 import { fetchMovieDetails } from "@/app/Data/MoviesServer";
 import type { Metadata } from "next";
+import { metadata } from "@/app/layout";
 
 interface PageProps {
     params: Promise<{ id: string; name: string }>;
@@ -15,12 +16,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: `${movie.title } - كلاكيت`,
         description: movie.overview || "تفاصيل الفيلم",
-        openGraph: {
-            title: movie.title || movie.original_title,
-            description: movie.overview || "تفاصيل الفيلم",
-            
-        },
+       
     };
+    
 }
 
 async function MovieDetailsContent({ params }: { params: Promise<{ id: string }> }) {

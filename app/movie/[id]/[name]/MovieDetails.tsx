@@ -22,7 +22,6 @@ export default async function MovieDetails({ id }: MovieDetailsProps) {
                                 height={600}
                                 alt={movie.title || movie.original_title}
                                 className="rounded-lg shadow-2xl"
-                                priority
                                 sizes="(max-width: 768px) 100vw, 400px"
                                 quality={75}
                             />
