@@ -5,7 +5,7 @@ import { fetchPopularMovies } from "@/app/Data/MoviesServer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "كلاكيت - الأفلام الشعبية",
+  title: "كلاكيت ",
   description: "تصفح أحدث وأشهر الأفلام العالمية والعربية",
 };
 

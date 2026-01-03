@@ -1,5 +1,4 @@
 'use server';
-
 import { cacheLife, cacheTag } from 'next/cache';
 import type { MoviesResponse, MovieDetails } from '@/app/types/movie';
 

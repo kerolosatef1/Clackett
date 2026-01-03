@@ -43,11 +43,11 @@ export default function Pagination({
                     href={buildUrl(currentPage - 1)}
                     className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
                 >
-                    &lt; السابق
+                    السابق
                 </Link>
             ) : (
                 <span className="px-4 py-2 bg-gray-100 text-gray-400 rounded cursor-not-allowed">
-                    &lt; السابق
+                    السابق
                 </span>
             )}
 
@@ -61,12 +61,10 @@ export default function Pagination({
                         1
                     </Link>
                     {startPage > 2 && (
-                        <span className="px-2 text-gray-500">...</span>
+                        <span className="px-2 text-gray-500">.</span>
                     )}
                 </>
             )}
-
-            {/* Page Numbers */}
             {pages.map((page) => (
                 page === currentPage ? (
                     <span
@@ -108,11 +106,11 @@ export default function Pagination({
                     href={buildUrl(currentPage + 1)}
                     className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
                 >
-                    التالي &gt;
+                    التالي 
                 </Link>
             ) : (
                 <span className="px-4 py-2 bg-gray-100 text-gray-400 rounded cursor-not-allowed">
-                    التالي &gt;
+                    التالي 
                 </span>
             )}
         </nav>
