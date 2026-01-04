@@ -3,11 +3,9 @@ import MovieDetails from "@/app/movie/[id]/[name]/MovieDetails";
 import MovieDetailsSkeleton from "@/app/movie/[id]/[name]/MovieDetailsSkeleton";
 import { fetchMovieDetails } from "@/app/Data/MoviesServer";
 import type { Metadata } from "next";
-
 interface PageProps {
     params: Promise<{ id: string; name: string }>;
 }
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { id } = await params;
     const movie = await fetchMovieDetails(id);

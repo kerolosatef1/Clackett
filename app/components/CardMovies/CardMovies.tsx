@@ -8,7 +8,7 @@ interface CardMoviesProps {
 
 export default function CardMovies({ mov }: CardMoviesProps) {
   return (
-    <div className="movie-card">
+    <section className="movie-card">
       <Link
         href={`/movie/${mov.id}/${encodeURIComponent(mov.original_title)}`}
         className="relative block w-full h-[500px] rounded-xl overflow-hidden shadow-lg group"
@@ -29,6 +29,6 @@ export default function CardMovies({ mov }: CardMoviesProps) {
           </div>
         )}
       </Link>
-    </div>
+    </section>
   );
 }

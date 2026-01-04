@@ -7,7 +7,7 @@ export default async function MovieDetails({ id }: MovieDetailsProps) {
     const movie = await fetchMovieDetails(id);
 
     return (
-        <div className="min-h-screen bg-black text-white p-5">
+        <section className="min-h-screen bg-black text-white p-5">
             <div className="max-w-6xl mx-auto">
                 <h1 className="text-4xl  font-bold mb-6">
                     {movie.title || movie.original_title}
@@ -76,7 +76,7 @@ export default async function MovieDetails({ id }: MovieDetailsProps) {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 function InfoRow({ label, value }: { label: string; value: string }) {
