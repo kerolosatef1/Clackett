@@ -3,7 +3,6 @@ import MovieDetails from "@/app/movie/[id]/[name]/MovieDetails";
 import MovieDetailsSkeleton from "@/app/movie/[id]/[name]/MovieDetailsSkeleton";
 import { fetchMovieDetails } from "@/app/Data/MoviesServer";
 import type { Metadata } from "next";
-import { metadata } from "@/app/layout";
 
 interface PageProps {
     params: Promise<{ id: string; name: string }>;
@@ -14,13 +13,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const movie = await fetchMovieDetails(id);
 
     return {
-        title: `${movie.title } - كلاكيت`,
+        title: `${movie.title ||'كلاكيت' } - كلاكيت`,
         description: movie.overview || "تفاصيل الفيلم",
        
     };
     
 }
-
 async function MovieDetailsContent({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     return <MovieDetails id={id} />;

@@ -18,7 +18,6 @@ export interface Genre {
     id: number;
     name: string;
 }
-
 export interface MovieDetails extends Movie {
     genres: Genre[];
     runtime: number;
@@ -28,7 +27,6 @@ export interface MovieDetails extends Movie {
     tagline: string;
     homepage: string;
 }
-
 export interface MoviesResponse {
     page: number;
     results: Movie[];
